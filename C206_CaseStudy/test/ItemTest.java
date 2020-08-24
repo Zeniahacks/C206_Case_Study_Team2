@@ -32,7 +32,7 @@ public class ItemTest {
 		assertEquals("Test itemlist is 0 before adding any items", 0, itemDatabase.itemList.size());
 		
 		//Test that the size of the itemList is 1 after adding item
-		itemDatabase.addItem(item1);
+		itemDatabase.addItem(itemList, item1);
 		assertEquals("Test size has 1", 1, itemDatabase.itemList.size());
 		
 		//Test that the first item in list is the same as what was added
@@ -43,6 +43,15 @@ public class ItemTest {
 	public void viewItemTest() {
 		//Test that itemList is NOT null (always check if empty list or not)[boundary]
 		assertNotNull("Test itemLIst is not null", itemDatabase.itemList);
+		
+		String allItems = itemDatabase.retrieveAllItems(itemList);
+		String testOutput = "";
+		assertEquals("Check if all items are retrieved", testOutput, allItems);
+		
+		//After adding more items, check whether the itemList increase
+		itemDatabase.addItem(itemList, item1);
+		assertEquals("Check array list size is 1", 1, itemList.size());
+		
 		
 	}
 }
